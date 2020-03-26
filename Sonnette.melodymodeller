@@ -761,6 +761,8 @@
             </outputs>
             <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
                 id="eba1b821-5275-48f7-83ca-2652400c001c" name="FOP 2"/>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="c6d974e9-166e-474f-ae93-18e2af4183ba" name="FOP 3"/>
             <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
                 id="57a93b70-39ec-4f71-a326-b8f8be3cf1ed" targetElement="#a87e2b31-c6ca-48d6-8ed7-aa498e57699e"
                 sourceElement="#cc7b3366-12f6-4a58-9f50-fb4579f235c5"/>
@@ -865,6 +867,10 @@
               id="5757fcff-34e0-495d-b30b-7931f93b4ac8" name="Acueillir le client">
             <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
                 id="8df8b3c0-db98-4cd5-9923-b16262e80828" name="inSignal_1"/>
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="b84b5f54-ea6e-4970-b990-ffb06bdb6acc" name="FIP 2"/>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="4daa5d4b-92e2-435a-abc7-3c75cb64ba63" name="FOP 1"/>
           </ownedFunctions>
           <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
               id="b52212e7-7ac7-48f5-b6a4-348a7a43f4ee" name="Declencher la sonnerie">
@@ -935,6 +941,25 @@
                 id="fe3a0bc8-912e-4c54-8ec2-03b9780dcd23" name="FOP 2_1"/>
             <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
                 id="05417fae-cb7a-4142-b1d3-94f92d2c34fb" name="FOP 1_1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="888df69d-1aaa-4e83-950a-cf1747c12894" name="Declencher timer">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="8686141b-9bd8-4d25-aa2e-44503b3555b9" name="FIP 1"/>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="93adf60c-bf10-4906-b645-e4e628b0f099" name="FOP 1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="18e7c0cf-84ce-4b18-9c5f-d60550177c31" name="Declencher timer_1">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="ec7f8845-50bb-48b3-9a84-b8017ac4dd52" name="FIP 1_1"/>
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="a57248e5-eb8b-43be-85a3-875c500d1335" name="FOP 1_1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="48fb99d5-8f3c-4345-bb4c-c1d1d80ec2ca" name="Timer">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="4b84bcb8-a9c1-423b-bb6b-1b415d4b2782" name="FIP 1"/>
           </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="2ff444ac-1788-4c33-8ed4-36da5f007218" targetElement="#940ec725-1d69-476a-af20-7dc6b9645048"
@@ -1017,6 +1042,15 @@
           <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
               id="a4d37ce1-94c8-449a-86e5-559c6f149546" name="relache" target="#5561010d-7abb-4347-859f-787807773e8a"
               source="#eba1b821-5275-48f7-83ca-2652400c001c"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="5b154874-40c3-41fa-961a-4f55e14e6d59" name="Declencher" target="#8686141b-9bd8-4d25-aa2e-44503b3555b9"
+              source="#4daa5d4b-92e2-435a-abc7-3c75cb64ba63"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="c1f243d6-4f65-404c-b569-58c510cdde28" name="fin timer" target="#b84b5f54-ea6e-4970-b990-ffb06bdb6acc"
+              source="#93adf60c-bf10-4906-b645-e4e628b0f099"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="23a1924e-ecd6-4089-b036-222f9dbfacb6" name="Declenche Timer" target="#4b84bcb8-a9c1-423b-bb6b-1b415d4b2782"
+              source="#c6d974e9-166e-474f-ae93-18e2af4183ba"/>
         </ownedPhysicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
@@ -1353,6 +1387,9 @@
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="9d888572-5052-4c89-b25c-770e3c367814" targetElement="#cc7b3366-12f6-4a58-9f50-fb4579f235c5"
               sourceElement="#5269cba4-ea7b-4b9a-833d-fcb660dc755b"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="486241c3-3302-4cb4-9dec-5dc7f38297e0" targetElement="#48fb99d5-8f3c-4345-bb4c-c1d1d80ec2ca"
+              sourceElement="#5269cba4-ea7b-4b9a-833d-fcb660dc755b"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
               id="e7075830-2fad-40e9-8407-db0c0d34da76" name="outSon" orientation="OUT"
               kind="FLOW">
@@ -1369,6 +1406,9 @@
             human="true" nature="NODE">
           <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
               id="a87732e0-d932-4334-adf2-4e50001f3323" targetElement="#5757fcff-34e0-495d-b30b-7931f93b4ac8"
+              sourceElement="#8131b168-413f-4e72-9c95-428825e5e642"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="d37e17f2-ec53-472b-98b4-47038c156a7a" targetElement="#888df69d-1aaa-4e83-950a-cf1747c12894"
               sourceElement="#8131b168-413f-4e72-9c95-428825e5e642"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
               id="6a4c2511-df88-4ef6-9e24-dec6a34c8c95" name="inSon_1" orientation="IN"
